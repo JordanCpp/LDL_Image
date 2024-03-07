@@ -80,7 +80,7 @@ unsigned char* LDL_ImageLoader::Pixels()
 
 void LDL_ImageLoader::Clear()
 {
-	if (_Pixels = NULL)
+	if (_Pixels != NULL)
 	{
 		stbi_image_free(_Pixels);
 	}
