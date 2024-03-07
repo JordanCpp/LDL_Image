@@ -33,6 +33,7 @@ public:
 	LDL_ImageLoader();
 	~LDL_ImageLoader();
 	bool Load(const char* path);
+	bool Load(unsigned char* data, int size);
 	int Bpp();
 	int Width();
 	int Heigth();

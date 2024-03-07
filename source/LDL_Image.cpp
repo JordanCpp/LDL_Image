@@ -58,6 +58,20 @@ bool LDL_ImageLoader::Load(const char* path)
 	return true;
 }
 
+bool LDL_ImageLoader::Load(unsigned char* data, int size)
+{
+	Clear();
+
+	_Pixels = stbi_load_from_memory(data, size, &_Width, &_Heigth, &_Bpp, 0);
+
+	if (_Width <= 0 || _Heigth <= 0 || _Bpp <= 0 || _Pixels == NULL)
+	{
+		return false;
+	}
+
+	return true;
+}
+
 int LDL_ImageLoader::Bpp()
 {
 	return _Bpp;
