@@ -27,7 +27,28 @@ DEALINGS IN THE SOFTWARE.
 #ifndef LDL_ImageLoader_hpp
 #define LDL_ImageLoader_hpp
 
-class LDL_ImageLoader
+/********************************************************************************************************************************
+														Configuration
+********************************************************************************************************************************/
+#if defined(_MSC_VER)
+    #if defined (LDL_IMAGE_SHARED)
+        #define LDL_IMAGE_API __declspec(dllexport)
+    #else
+        #define LDL_IMAGE_API __declspec(dllimport)
+    #endif
+#endif
+
+#if defined(__GNUC__)
+    #if defined (LDL_IMAGE_SHARED)
+        #define LDL_IMAGE_API __attribute__ ((visibility("default")))
+    #else
+        #define LDL_IMAGE_API
+    #endif
+#endif
+/********************************************************************************************************************************
+														LDL_ImageLoader
+********************************************************************************************************************************/
+class LDL_IMAGE_API LDL_ImageLoader
 {
 public:
 	LDL_ImageLoader();
